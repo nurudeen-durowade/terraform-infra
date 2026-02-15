@@ -25,9 +25,9 @@ variable "PATH_TO_PRIVATE_KEY" {
   default = "custom_vpc_key"
 }
 
-variable "PATH_TO_PUBLIC_KEY" {
-  default = "~/.ssh/custom_vpc_key.pub"
-}
+# variable "PATH_TO_PUBLIC_KEY" {
+#   default = "${path.module}/custom_vpc_key.pub"
+# }
 
 variable "INSTANCE_USERNAME" {
   default = "ubuntu"

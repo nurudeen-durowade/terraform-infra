@@ -1,7 +1,13 @@
+locals {
+  path_to_public_key = "${path.module}/custom_vpc_key.pub"
+}
 resource "aws_key_pair" "custom_vpc_key" {
   key_name   = "custom_vpc_key"
-  public_key = file(var.PATH_TO_PUBLIC_KEY)
+  public_key = file(local.path_to_public_key)
 }
+
+
+# Create AWS Instance
 
 resource "aws_instance" "StagingIstance" {
   ami           = lookup(var.AMIS, var.AWS_REGION)
