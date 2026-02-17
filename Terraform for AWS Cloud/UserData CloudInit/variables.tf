@@ -22,11 +22,11 @@ variable "AMIS" {
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "custom_vpc_key"
+  default = "secret_key"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "~/.ssh/custom_vpc_key_aws.pub"
+  default = "~/.ssh/secret_key.pub"
 }
 
 variable "INSTANCE_USERNAME" {
