@@ -8,5 +8,5 @@ systemctl start apache2
 
 systemctl enable apache2
 
-echo "<h1>Deployed  Machine via Terraform </h1>" | sudo tee /var/wwww/html/index.html
+echo "<h1>Deployed  Machine via Terraform </h1>" | sudo tee /var/www/html/index.html
 

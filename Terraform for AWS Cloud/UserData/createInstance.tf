@@ -6,7 +6,7 @@ resource "aws_key_pair" "custom_vpc_key" {
 
 # Create AWS Instance
 
-resource "aws_instance" "JumpboxIstance" {
+resource "aws_instance" "JumpboxInstance" {
   ami               = lookup(var.AMIS, var.AWS_REGION)
   instance_type     = "t3.micro"
   key_name          = aws_key_pair.custom_vpc_key.key_name
@@ -16,14 +16,14 @@ resource "aws_instance" "JumpboxIstance" {
 
 
   tags = {
-    Name = "staging_instance"
+    Name = "jumpbox_instance"
   }
 
 
 }
 
 output "public_ip" {
-  value = aws_instance.JumpboxIstance.public_ip
+  value = aws_instance.JumpboxInstance.public_ip
 }
 
 
