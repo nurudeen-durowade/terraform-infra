@@ -62,3 +62,7 @@ resource "aws_db_instance" "custom-mariadb" {
 
 }
 
+
+output "rds" {
+  value = aws_db_instance.custom-mariadb.endpoint
+}
