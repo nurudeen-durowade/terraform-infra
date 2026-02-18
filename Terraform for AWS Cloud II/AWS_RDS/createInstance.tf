@@ -1,5 +1,5 @@
-resource "aws_key_pair" "custom_vpc_key" {
-  key_name   = "custom_vpc_key"
+resource "aws_key_pair" "levelup_key" {
+  key_name   = "levelup_key"
   public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
@@ -9,7 +9,7 @@ resource "aws_key_pair" "custom_vpc_key" {
 resource "aws_instance" "JumpboxInstance" {
   ami                    = lookup(var.AMIS, var.AWS_REGION)
   instance_type          = "t3.micro"
-  key_name               = aws_key_pair.custom_vpc_key.key_name
+  key_name               = aws_key_pair.levelup_key.name
   vpc_security_group_ids = [aws_security_group.allow_custom-vpc-ssh.id]
   subnet_id              = aws_subnet.custom_vpc-public-1.id
   availability_zone      = "us-east-1c"
