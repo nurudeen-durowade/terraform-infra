@@ -9,7 +9,7 @@ resource "aws_key_pair" "secret_key" {
 resource "aws_instance" "JumpboxInstance" {
   ami               = lookup(var.AMIS, var.AWS_REGION)
   instance_type     = "t3.micro"
-  key_name          = aws_key_pair.custom_vpc_key.key_name
+  key_name          = aws_key_pair.secret_key.key_name
   availability_zone = "us-east-1c"
 
   user_data = data.template_cloudinit_config.install_apache_config.rendered
