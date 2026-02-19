@@ -10,7 +10,7 @@ resource "aws_db_subnet_group" "mariadb-subnets" {
 
 resource "aws_db_parameter_group" "custom-mariadb-parameters" {
   name        = "custom-mariadb-parameters"
-  family      = "mariadb10.6"
+  family      = "mariadb10.5"
   description = "MariaDB parameter group"
 
   parameter {
@@ -42,7 +42,7 @@ resource "aws_db_parameter_group" "custom-mariadb-parameters" {
 resource "aws_db_instance" "custom-mariadb" {
   allocated_storage       = 20
   engine                  = "mariadb"
-  engine_version          = "10.4.8"
+  engine_version          = "10.5.27"
   instance_class          = "db.t3.micro"
   identifier              = "mariadb"
   username                = "root"
@@ -52,7 +52,7 @@ resource "aws_db_instance" "custom-mariadb" {
   multi_az                = false
   vpc_security_group_ids  = [aws_security_group.allow_mariadb.id]
   storage_type            = "gp2"
-  backup_retention_period = 30
+  backup_retention_period = 1
   availability_zone       = aws_subnet.custom_vpc-private-1.availability_zone
   skip_final_snapshot     = true
 
