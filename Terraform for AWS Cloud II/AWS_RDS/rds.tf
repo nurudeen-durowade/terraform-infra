@@ -40,21 +40,21 @@ resource "aws_db_parameter_group" "custom-mariadb-parameters" {
 
 
 resource "aws_db_instance" "custom-mariadb" {
-  allocated_storage       = 20
+  allocated_storage       = 20 # 20 GB of storage
   engine                  = "mariadb"
   engine_version          = "10.5.27"
-  instance_class          = "db.t3.micro"
+  instance_class          = "db.t3.micro" #use micro if you want to use the free tier
   identifier              = "mariadb"
   username                = "root"
   password                = "mariadb141"
   db_subnet_group_name    = aws_db_subnet_group.mariadb-subnets.name
   parameter_group_name    = aws_db_parameter_group.custom-mariadb-parameters.name
-  multi_az                = false
+  multi_az                = false # set to true to have high availability: 2 instances synchronized with each othet
   vpc_security_group_ids  = [aws_security_group.allow_mariadb.id]
   storage_type            = "gp2"
-  backup_retention_period = 1
-  availability_zone       = aws_subnet.custom_vpc-private-1.availability_zone
-  skip_final_snapshot     = true
+  backup_retention_period = 1                                                 # how long you are going to keep your backups
+  availability_zone       = aws_subnet.custom_vpc-private-1.availability_zone #prefered AZ
+  skip_final_snapshot     = true                                              # skip final snapshot when doing terraform destroy
 
   tags = {
     Name = "custom-mariadb"
