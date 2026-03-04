@@ -1,10 +1,10 @@
 #Create AWS s3 bucket
 
 resource "aws_s3_bucket" "apibox_s3bucket" {
-  bucket = "apibox_bucket-555"
+  bucket = "apibox-bucket-555"
 
   tags = {
-    Name = "apibox_bucket-555"
+    Name = "apibox-bucket-555"
   }
 }
 

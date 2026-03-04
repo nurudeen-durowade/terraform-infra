@@ -22,11 +22,11 @@ variable "AMIS" {
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "levelup_key"
+  default = "s3bucket_key"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "~/.ssh/levelup_key.pub"
+  default = "~/.ssh/s3bucket_key.pub"
 }
 
 variable "INSTANCE_USERNAME" {
