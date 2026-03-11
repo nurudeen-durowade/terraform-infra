@@ -48,8 +48,8 @@ resource "aws_iam_role_policy" "s3-apiboxbucket-role-policy" {
                 
                 ],
                 "Resource": [
-                    "arn:aws:s3:::apibox_bucket-555",
-                    "arn:aws:s3:::apibox_bucket-555/*"
+                    "arn:aws:s3:::apibox-bucket-555",
+                    "arn:aws:s3:::apibox-bucket-555/*"
                 ]               
                 
                 }
